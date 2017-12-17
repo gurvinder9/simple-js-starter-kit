@@ -1,10 +1,15 @@
 {
-  "name": "A Simple Javascript Starter Kit",
+  "name": "javascript-build-kit",
   "version": "1.0.0",
   "description": "JavaScript development environment Set up",
-  "scripts": {},
   "author": "Gurvinder Singh",
   "license": "MIT",
+  "scripts": {
+    "prestart": "node build/message",
+    "start": "npm-run-all --parallel nsp local",
+    "local": "node build/server",
+    "nsp": "nsp check"
+  },
   "dependencies": {
     "express": "^4.16.2"
   },
