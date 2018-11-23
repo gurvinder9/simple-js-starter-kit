@@ -1,3 +1,5 @@
+import './index.css';
+
 function concatString(str1,...str) {
   return str.concat(str1);
 }

@@ -3,6 +3,7 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 let config =  {
+  mode: "development", // default - production
   entry: [
     path.resolve(__dirname, 'src/index')
   ],
@@ -15,10 +16,18 @@ let config =  {
       },
       {
         test: /\.jsx?/,
-        use: 'babel-loader',
-        query : {
-          presets : ['babel-preset-es2015', 'react']
-        }
+        use:[
+          {
+            loader: 'babel-loader',
+            query : {
+              presets : ['babel-preset-es2015', 'react']
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.scss$/,
@@ -27,7 +36,7 @@ let config =  {
           use: ['css-loader', 'sass-loader'],
           publicPath:'../build/app.css'
         })
-      },
+      }
     ]
   },
   devtool: 'inline-source-map',
