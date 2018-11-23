@@ -47,6 +47,9 @@ let config =  {
     filename: 'app.bundle.js'
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      debug: true
+    })
     // new ExtractTextPlugin({
     //   fileName: 'app.css',
     //   disable: false,
